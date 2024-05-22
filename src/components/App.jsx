@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { ContactForm } from './ContactForm';
+import { ContactsList } from './ContactList';
 
 export const App = () => {
   useEffect(() => {
@@ -20,6 +21,8 @@ export const App = () => {
       <div>
         <h1>Phonebook</h1>
         <ContactForm />
+        <h2>ContactList</h2>
+        <ContactsList />
       </div>
     </div>
   );
