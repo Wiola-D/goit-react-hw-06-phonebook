@@ -19,9 +19,12 @@ const contactSlice = createSlice({
         };
       },
     },
-    deleteTask(state, action) {},
+    deleteContact(state, action) {
+      const index = state.findIndex(task => task.id === action.payload);
+      state.splice(index, 1);
+    },
   },
 });
 
-export const { addContact, deleteTask } = contactSlice.actions;
+export const { addContact, deleteContact } = contactSlice.actions;
 export const contactsReducer = contactSlice.reducer;

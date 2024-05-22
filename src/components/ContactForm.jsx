@@ -1,16 +1,24 @@
-import { useDispatch } from 'react-redux';
-import { addContact } from '../redux/constactSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from '../redux/contactSlice';
+import { getContacts } from '../redux/selectors';
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const name = form[0].value;
     const number = form[1].value;
+    const nameExists = contacts.some(contact => contact.name === name);
 
-    dispatch(addContact(name, number));
+    if (nameExists) {
+      alert(name + ' is already in contacts.');
+    } else {
+      dispatch(addContact(name, number));
+    }
+
     form.reset();
   };
 
@@ -23,7 +31,8 @@ export const ContactForm = () => {
           className="input"
           name="name"
           id="name"
-          pattern="^[a-zA-Zа-яА-Я]*$"
+          pattern="^[a-zA-Zа-яА-Я]+((['\s\-][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          title="Name without space"
           required
           placeholder="Name"
         />

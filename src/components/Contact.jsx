@@ -1,18 +1,17 @@
-// import { useDispatch } from "react-redux";
-// import { deleteTask } from "redux/tasksSlice";
+import { useDispatch } from 'react-redux';
+import { deleteContact } from '../redux/contactSlice';
 
 export const Contact = ({ contact }) => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //   const handleDelete = () => dispatch(deleteTask(task.id));
+  const handleDelete = () => dispatch(deleteContact(contact.id));
 
   return (
     <div>
       <p>{contact.name}</p>
       <p>{contact.number}</p>
 
-      {/* <button className={css.btn} onClick={handleDelete}>X
-      </button> */}
+      <button onClick={handleDelete}>X</button>
     </div>
   );
 };

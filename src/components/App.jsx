@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { ContactForm } from './ContactForm';
 import { ContactsList } from './ContactList';
+import { Filter } from './Filtered';
 
 export const App = () => {
   useEffect(() => {
@@ -10,11 +11,10 @@ export const App = () => {
   return (
     <div
       style={{
-        height: '100vh',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 40,
+        fontSize: 20,
         color: '#010101',
       }}
     >
@@ -22,6 +22,7 @@ export const App = () => {
         <h1>Phonebook</h1>
         <ContactForm />
         <h2>ContactList</h2>
+        <Filter />
         <ContactsList />
       </div>
     </div>
