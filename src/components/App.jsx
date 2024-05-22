@@ -1,4 +1,11 @@
+import { useEffect } from 'react';
+import { ContactForm } from './ContactForm';
+
 export const App = () => {
+  useEffect(() => {
+    console.log('hello');
+  }, []);
+
   return (
     <div
       style={{
@@ -10,7 +17,10 @@ export const App = () => {
         color: '#010101',
       }}
     >
-      goit-react-hw-06-phonebook
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm />
+      </div>
     </div>
   );
 };
